@@ -10,18 +10,22 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Login")),
       body: Center(
-        child: Column(
-          children: [
-            Text("Router Demo Login"),
-            FilledButton(
-              child: Text("Login"),
-              onPressed: () {
-                BlocProvider.of<AuthenticationBloc>(
-                  context,
-                ).add(AuthenticationLoginEvent());
-              },
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FilledButton(
+                child: Text("Login"),
+                onPressed: () {
+                  BlocProvider.of<AuthenticationBloc>(
+                    context,
+                  ).add(AuthenticationLoginEvent());
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
