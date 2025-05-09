@@ -1,6 +1,6 @@
+import 'package:hw4/navigation/book_router.dart';
 import '../bloc/authentication_bloc.dart';
-import 'authen_repo.dart';
-
+import 'authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          routerConfig: routerDemo(authenticationBloc),
+          routerConfig: bookRouter(authenticationBloc),
         ),
       ),
     );
