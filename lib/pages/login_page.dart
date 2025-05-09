@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hw4/bloc/authentication_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -14,9 +16,9 @@ class LoginPage extends StatelessWidget {
             FilledButton(
               child: Text("Login"),
               onPressed: () {
-                // BlocProvider.of<AuthenticationBloc>(
-                //   context,
-                // ).add(AuthenticationLoginEvent());
+                BlocProvider.of<AuthenticationBloc>(
+                  context,
+                ).add(AuthenticationLoginEvent());
               },
             ),
           ],
