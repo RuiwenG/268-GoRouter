@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hw4/bloc/authentication_bloc.dart';
+import 'package:hw4/pages/by_author_page.dart';
+import 'package:hw4/pages/home_page.dart';
 import 'package:hw4/pages/login_page.dart';
 import 'package:hw4/utilities/stream_to_listenable.dart';
+import 'package:hw4/widgets/scaffold_with_nav_bar.dart';
 
 class RouteName {
   static const home = 'home';
@@ -34,7 +37,7 @@ GoRouter bookRouter(AuthenticationBloc authenticationBloc) {
       } else {
         if ((state.fullPath?.startsWith("/login") ?? false) &&
             authenticationBloc.state is AuthenticationLoggedIn) {
-          return "/login";
+          return "/byAuthor";
         }
       }
       return null;
@@ -46,6 +49,30 @@ GoRouter bookRouter(AuthenticationBloc authenticationBloc) {
         builder: (context, state) {
           return const LoginPage();
         },
+      ),
+      GoRoute(
+        path: '/',
+        name: RouteName.home,
+        builder: (context, state) {
+          return const HomePage();
+        },
+        routes: [
+          ShellRoute(
+            navigatorKey: shellNavigatorKey,
+            builder: (BuildContext context, GoRouterState state, Widget child) {
+              return ScaffoldWithNavBar(child: child);
+            },
+            routes: <RouteBase>[
+              GoRoute(
+                path: '/byAuthor',
+                name: RouteName.byAuthor,
+                builder: (BuildContext context, GoRouterState state) {
+                  return const ByAuthorPage();
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     ],
   );
