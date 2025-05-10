@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hw4/bloc/authentication_bloc.dart';
 import 'package:hw4/pages/by_author_page.dart';
+import 'package:hw4/pages/by_title_page.dart';
 import 'package:hw4/pages/home_page.dart';
 import 'package:hw4/pages/login_page.dart';
+import 'package:hw4/pages/profile_page.dart';
 import 'package:hw4/utilities/stream_to_listenable.dart';
 import 'package:hw4/widgets/scaffold_with_nav_bar.dart';
 
@@ -63,11 +65,27 @@ GoRouter bookRouter(AuthenticationBloc authenticationBloc) {
               return ScaffoldWithNavBar(child: child);
             },
             routes: <RouteBase>[
+              // need by author detail page
               GoRoute(
                 path: '/byAuthor',
                 name: RouteName.byAuthor,
                 builder: (BuildContext context, GoRouterState state) {
                   return const ByAuthorPage();
+                },
+              ),
+              // also need by title detail
+              GoRoute(
+                path: '/byTitle',
+                name: RouteName.byTitle,
+                builder: (BuildContext context, GoRouterState state) {
+                  return const ByTitlePage();
+                },
+              ),
+              GoRoute(
+                path: '/profile',
+                name: RouteName.profile,
+                builder: (BuildContext context, GoRouterState state) {
+                  return const ProfilePage();
                 },
               ),
             ],

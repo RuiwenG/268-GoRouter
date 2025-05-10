@@ -18,9 +18,12 @@ class ScaffoldWithNavBar extends StatelessWidget {
       body: child,
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'By Author'),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'By Title'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'By Author'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.text_fields),
+            label: 'By Title',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Profile'),
         ],
         currentIndex: _calculateSelectedIndex(context),
         onTap: (int idx) => _onItemTapped(idx, context),
