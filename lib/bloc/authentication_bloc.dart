@@ -1,25 +1,18 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:equatable/equatable.dart';
 
-part 'authentication_event.dart';
-part 'authentication_state.dart';
+abstract class AuthenticationState extends Equatable {
+  const AuthenticationState();
+  @override
+  List<Object?> get props => [];
+}
 
-class AuthenticationBloc
-    extends Bloc<AuthenticationEvent, AuthenticationState> {
-  AuthenticationBloc() : super(AuthenticationInitial()) {
-    on<AuthenticationLoginEvent>((event, emit) {
-      _login(event, emit);
-    });
-    on<AuthenticationLogoutEvent>((event, emit) {
-      _logout(event, emit);
-    });
-  }
+class Authenticated extends AuthenticationState {}
+class Unauthenticated extends AuthenticationState {}
 
-  void _login(event, emit) {
-    emit(AuthenticationLoggedIn());
-  }
+class AuthenticationBloc extends Cubit<AuthenticationState> {
+  AuthenticationBloc() : super(Unauthenticated());
 
-  void _logout(event, emit) {
-    emit(AuthenticationLoggedOut());
-  }
+  void logIn() => emit(Authenticated());
+  void logOut() => emit(Unauthenticated());
 }

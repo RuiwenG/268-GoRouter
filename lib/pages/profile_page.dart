@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/authentication_bloc.dart';
+import '../widgets/custom_app_bar.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Login'),
-        backgroundColor: const Color(0xFFFDF6FF),
-        foregroundColor: Colors.black,
-        elevation: 0,
-      ),
-      
+      // appBar: AppBar(title: const Text("Profile")),
+      appBar: const CustomAppBar(title: 'Profile'),
+
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            context.read<AuthenticationBloc>().logIn();
+            context.read<AuthenticationBloc>().logOut();
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.deepPurple,
@@ -29,7 +25,7 @@ class LoginPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
             ),
           ),
-          child: const Text("Login", style: TextStyle(fontSize: 18)),
+          child: const Text("Logout", style: TextStyle(fontSize: 18)),
         ),
       ),
     );
