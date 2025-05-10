@@ -6,8 +6,11 @@ class ByAuthorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Author")),
-      body: Center(child: Text("Author")),
+      appBar: AppBar(title: Text("Books"), centerTitle: true),
+      body: Center(child: Column(children: [
+
+        ],
+      )),
     );
   }
 }
