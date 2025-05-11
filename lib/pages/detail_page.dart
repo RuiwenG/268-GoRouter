@@ -10,14 +10,8 @@ class DetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Book Details"),
         centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back),
-          ),
-        ],
+        // Note: Flutter automatically provides a default back button on the left
+        // when a route can be popped
       ),
       body: Center(
         child: Column(

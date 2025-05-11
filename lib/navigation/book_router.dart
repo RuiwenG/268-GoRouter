@@ -14,9 +14,9 @@ import 'package:hw4/widgets/scaffold_with_nav_bar.dart';
 class RouteName {
   static const home = 'home';
   static const byAuthor = 'byAuthor';
-  static const byAuthorDetail = 'detail';
+  static const byAuthorDetail = 'byAuthorDetail';
   static const byTitle = 'byTitle';
-  static const byTileDetail = 'detail';
+  static const byTitleDetail = 'byTitleDetail';
   static const profile = 'profile';
   static const login = 'login';
 }
@@ -83,15 +83,15 @@ GoRouter bookRouter(AuthenticationBloc authenticationBloc) {
                 ],
               ),
               GoRoute(
-                path: '/byTitle',
+                path: 'byTitle',
                 name: RouteName.byTitle,
                 builder: (BuildContext context, GoRouterState state) {
                   return const ByTitlePage();
                 },
                 routes: [
                   GoRoute(
-                    path: 'detail',
-                    name: 'byAuthroDetail',
+                    path: '/detail',
+                    name: 'byTitleDetail',
                     builder: (BuildContext context, GoRouterState state) {
                       return const DetailPage();
                     },

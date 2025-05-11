@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hw4/navigation/book_router.dart';
 import 'package:hw4/widgets/book_card.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class ByAuthorPage extends StatelessWidget {
@@ -15,6 +14,8 @@ class ByAuthorPage extends StatelessWidget {
       {"title": "Da Vinci Code", "author": "Dan Brown"},
       {"title": "Da Vinci Code", "author": "Dan Brown"},
     ];
+    // sort by author
+    books.sort((a, b) => a['author']!.compareTo(b['author']!));
     return Scaffold(
       appBar: AppBar(title: Text("Books"), centerTitle: true),
       body: Column(

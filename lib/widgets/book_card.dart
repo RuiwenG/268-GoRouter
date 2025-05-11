@@ -13,8 +13,8 @@ class BookCard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
+    return GestureDetector(
+      onTap: onTap,
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
