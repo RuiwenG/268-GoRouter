@@ -19,10 +19,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'By Author'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.text_fields),
-            label: 'By Title',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.title), label: 'By Title'),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Profile'),
         ],
         currentIndex: _calculateSelectedIndex(context),

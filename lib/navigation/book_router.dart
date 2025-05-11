@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hw4/bloc/authentication_bloc.dart';
 import 'package:hw4/pages/by_author_page.dart';
 import 'package:hw4/pages/by_title_page.dart';
+import 'package:hw4/pages/detail_page.dart';
 import 'package:hw4/pages/home_page.dart';
 import 'package:hw4/pages/login_page.dart';
 import 'package:hw4/pages/profile_page.dart';
@@ -65,21 +66,37 @@ GoRouter bookRouter(AuthenticationBloc authenticationBloc) {
               return ScaffoldWithNavBar(child: child);
             },
             routes: <RouteBase>[
-              // need by author detail page
               GoRoute(
                 path: '/byAuthor',
                 name: RouteName.byAuthor,
                 builder: (BuildContext context, GoRouterState state) {
                   return const ByAuthorPage();
                 },
+                routes: [
+                  GoRoute(
+                    path: 'detail',
+                    name: 'byAuthorDetail',
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const DetailPage();
+                    },
+                  ),
+                ],
               ),
-              // also need by title detail
               GoRoute(
                 path: '/byTitle',
                 name: RouteName.byTitle,
                 builder: (BuildContext context, GoRouterState state) {
                   return const ByTitlePage();
                 },
+                routes: [
+                  GoRoute(
+                    path: 'detail',
+                    name: 'byAuthroDetail',
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const DetailPage();
+                    },
+                  ),
+                ],
               ),
               GoRoute(
                 path: '/profile',
