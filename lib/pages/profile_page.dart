@@ -8,7 +8,14 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Profile"), centerTitle: true),
+      appBar: AppBar(
+        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+        title: Text("Profile"),
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle)),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

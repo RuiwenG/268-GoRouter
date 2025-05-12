@@ -17,7 +17,14 @@ class ByAuthorPage extends StatelessWidget {
     // sort by author
     books.sort((a, b) => a['author']!.compareTo(b['author']!));
     return Scaffold(
-      appBar: AppBar(title: Text("Books"), centerTitle: true),
+      appBar: AppBar(
+        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+        title: Text("Books"),
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle)),
+        ],
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

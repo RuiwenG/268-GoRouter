@@ -17,7 +17,14 @@ class ByTitlePage extends StatelessWidget {
     // sort by title
     books.sort((a, b) => a['title']!.compareTo(b['title']!));
     return Scaffold(
-      appBar: AppBar(title: Text("Books"), centerTitle: true),
+      appBar: AppBar(
+        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+        title: Text("Books"),
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.account_circle)),
+        ],
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
