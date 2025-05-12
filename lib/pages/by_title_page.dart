@@ -12,7 +12,7 @@ class ByTitlePage extends StatelessWidget {
       {"title": "Da Vinci Code", "author": "Dan Brown"},
       {"title": "Da Vinci Code", "author": "Dan Brown"},
       {"title": "Da Vinci Code", "author": "Dan Brown"},
-      {"title": "Da Vinci Code", "author": "Dan Brown"},
+      {"title": "Test to see sorted", "author": "A Test"},
     ];
     // sort by title
     books.sort((a, b) => a['title']!.compareTo(b['title']!));
